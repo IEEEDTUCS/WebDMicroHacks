@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+    <title>All Blogs</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
+</head>
+<body>
+    <h1 id="heading">My Blogs</h1>
+    <% blogs.forEach(function(blog){ %>
+        <h3 class="blogtitle">Title: <%= blog.title %></h3> 
+        <p>
+            <%-blog.body%>
+        </p>     
+        <br>
+        <a href="/blogs/<%= blog.id %>">
+            <button>More Info</button>
+        </a>
+    <%})%>
+    <br>
+    <a href="/blogs/new">
+        <button>New Blog</button>
+    </a>
+</body>
+</html>

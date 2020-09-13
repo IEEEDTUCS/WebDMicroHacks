@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+    <title>Edit Blog</title>
+</head>
+<body style="text-align: center;">
+    <h1 style="text-decoration: underline;">Edit Blog</h1>
+    <br>
+    <form action="/blogs/<%= blog.id %>?_method=PUT" method="POST">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="blog[title]" value="<%=blog.title%>">
+        <br><br>
+        <label for="image">Image</label>
+        <input type="text" id="image" name="blog[image]" value="<%=blog.image%>">
+        <br><br>
+        <label for="body">Body</label>
+        <textarea id="body" name="blog[body]" rows=4><%=blog.body%></textarea>
+        <br><br>
+        <button type="submit">Submit</button>        
+    </form>
+</body>

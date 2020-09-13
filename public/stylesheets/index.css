@@ -1,0 +1,11 @@
+body{
+    text-align:center;    
+}
+
+#heading{
+    text-decoration:underline;
+}
+
+.blogtitle{
+    color: red;
+}

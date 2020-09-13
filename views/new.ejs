@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+    <title>New Blog</title>
+</head>
+<body>
+    <h1>New Blog</h1>
+    <form action="/blogs" method="POST">
+        <label for="title">Title</label>
+        <br>
+        <input type="text" id="title" name="blog[title]" placeholder="Blog 1" required>
+        <br><br>
+        <label for="image">Image Url</label>
+        <br>
+        <input type="text" id="image" name="blog[image]" placeholder="https://www.abc.com/pic.jpg" required>
+        <br><br>
+        <label for="body">Body</label>
+        <br>
+        <textarea id="body" rows="4" name="blog[body]" required></textarea>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
