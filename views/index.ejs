@@ -1,23 +1,69 @@
 <!DOCTYPE html>
 <head>
     <title>All Blogs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    
 </head>
 <body>
+    <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">            
+        <a class="navbar-brand" href="#">My Page</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/blogs">Blogs <span class="sr-only">(current)</span></a>
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link" href="/blogs/new">New Blog</a>
+              </li>               
+          </ul>              
+        </div>
+      </nav>
     <h1 id="heading">My Blogs</h1>
-    <% blogs.forEach(function(blog){ %>
-        <h3 class="blogtitle">Title: <%= blog.title %></h3> 
-        <p>
-            <%-blog.body%>
-        </p>     
-        <br>
-        <a href="/blogs/<%= blog.id %>">
-            <button>More Info</button>
-        </a>
-    <%})%>
     <br>
-    <a href="/blogs/new">
-        <button>New Blog</button>
-    </a>
+    <% var i=1; var t=3; const s=blogs.length; const g=Math.ceil(s/t); for(; i<=g;i++){ var c; if(i==1) c="show"; else c="disable"; %>
+    <div class="container <%=c%>" id="<%=i%>">
+    <div class="row">
+    <%    for(var j=(i-1)*t; j<t+(i-1)*t && j<s ;j++){ var blog=blogs[j]; %>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="<%=blog.image%>" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><%= blog.title %></h5>
+                  <p class="card-text"><%-blog.body%></p>
+                  <a href="/blogs/<%= blog.id %>" class="btn btn-primary">More Info</a>
+                </div>
+              </div>  
+        
+    </div>
+    
+    <%}%> 
+</div>
+</div>
+<%}%>
+
+<br>
+
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <% for(var j=1;j<i;j++){%>
+      <li class="page-item"><a class="page-link" href="#<%=j%>"><%=j%></a></li>
+      <%}%>
+    </ul>
+  </nav>
+</div>
+<script src="pagination.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>

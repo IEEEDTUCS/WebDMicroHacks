@@ -1,11 +1,12 @@
-body{
-    text-align:center;    
-}
-
 #heading{
     text-decoration:underline;
+    text-align: center;
 }
 
-.blogtitle{
-    color: red;
+.show{
+    opacity:1;
+}
+
+.disable{
+    display:none;
 }
